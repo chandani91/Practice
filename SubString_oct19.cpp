@@ -34,9 +34,6 @@ bool check_string(string main_string, string sub_string)
     return false;
 }
 
-
-
-
 int main()
 {
     string main_string, sub_string;
