@@ -28,8 +28,7 @@ bool check_string(string main_string, string sub_string)
             }
             if(count == length_subString - 1)
                 return true;
-        }
-        
+        } 
     }
     return false;
 }
