@@ -27,7 +27,10 @@ string check_string(string main_string, string sub_string)
 
             }
             if(count == length_subString - 1)
+            {
                 main_string = main_string.erase(i + 1 - length_subString,length_subString);
+                break;  
+            }
         } 
     }
     return main_string;
