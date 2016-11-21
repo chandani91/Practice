@@ -1,16 +1,13 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 
-void counter(int i, string sentence)
+void counter(int i)
 {
-	sentence = sentence.insert (14+i, "o");
 	if(i < 10)	
 	{
 		i++;
-		cout << i << sentence << endl;
-		counter(i, sentence);
+		counter(i);
 	}
 }
 
@@ -18,9 +15,7 @@ void counter(int i, string sentence)
 int main() 
 {	
 	int i = 0;
-	string sentence = ". I like you s very much Faiz.";
-	cout << endl << "Because my likeness for you increases everyday <3 <3 <3" << endl;
-	counter(i, sentence);
+	counter(i);
 	cout << endl;
 	return 0;
 }
