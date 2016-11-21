@@ -7,6 +7,7 @@ void counter(int i)
 	if(i < 10)	
 	{
 		i++;
+		cout << i << " ";
 		counter(i);
 	}
 }
