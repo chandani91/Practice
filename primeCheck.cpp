@@ -1,32 +1,34 @@
 #include <iostream>
 using namespace std;
 
-void prime(int checkNum)
-{
-	int num = 2, counter = 0;
-	while(checkNum >= num)
-	{
-		if(checkNum % num == 0)
+int primecheck()
+ {
+ 	int counter =0, divider = 2;
+ 	while(divider <= num)
 		{
-			counter++;
+			if(num % divider == 0)
+			{
+				counter++;
+			}
+			divider++;
 		}
-		num++;
+		if (counter == 1)
+			cout << num <<endl;
+ }
+
+int prime(num)
+{
+	while (num >= 2)
+	{
+		primecheck(num);
+		num--;
 	}
-	if (counter == 1)
-		cout << checkNum << " is Prime." << endl;
-	else
-		cout << checkNum << " is not Prime." << endl;
 }
-
-
-
 
 int main()
 {
-	int checkNum;
-	cout << endl;
+	int num;
 	cout << "Enter a number: ";
-	cin >> checkNum;
-	prime(checkNum);
-	cout << endl;
+	cin >> num;
+	prime(num);
 }
