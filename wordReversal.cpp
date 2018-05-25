@@ -2,35 +2,22 @@
 using namespace std;
 
 string reverseSubString(string s){
-	int count = 0;
-	int j;
-	string reversedWord;
-	string reversedSentence;
-
+	int j=0;
 	for (int i = 0; i <s.length(); i++){
 
 	    if (s.at(i) == ' ')
 		{
-			for (int j = i - 1; j >= i - count; j--)
-				reversedWord = reversedWord+ s.at(j);
-
-			count = 0;
-			reversedSentence = reversedSentence + reversedWord ;
-			reversedWord  = ' ';
+			reverse(s.begin()+j,s.begin()+i);
+			j = i+1;
 		}
 
-		else if (i == s.length()-1)
+		if (i == s.length()-1)
 		{
-			for (j = i; j >= i - count; j--){
-				reversedWord = reversedWord+ s.at(j);
-			}
-			reversedSentence = reversedSentence + reversedWord;
+			reverse(s.begin()+j,s.end());
+			j++;
 		}	
-
-		else if (s.at(i) != ' ')
-			count ++;	
 	}
-	return reversedSentence ;
+	return s;
 }
 
 int main(){
