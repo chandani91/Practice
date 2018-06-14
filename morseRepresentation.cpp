@@ -40,11 +40,7 @@ int uniqueMorseRepresentations(vector<string>& words)
 		string key = morsed[i];
 		hashmap[key]++;
 	}
-	for(auto iter = hashmap.begin(); iter != hashmap.end(); iter++){
-		count++;
-	}
-
-	return count;	
+	return hashmap.size();		
 }
 
 
