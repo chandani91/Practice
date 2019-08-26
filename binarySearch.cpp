@@ -1,34 +1,34 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int binarySearch(int a[], int arraySize, int num){
-	int subArray[] = {0};
-	int midVal = (arraySize/2);
-	if (num == a(midVal))
+int binarySearch(vector<int> &sorted, int vectSize, int num){
+	vector<int> subVect;
+	int midVal = (vectSize/2);
+	if (num == sorted.at(midVal))
 		return midVal;
-	else if ((num > a(midVal))){
-		midVal = (midVal + 1 + arraySize)/2;
-		for(int i = midVal+1; i < arraySize; i++)
-			subArray[] = a[i];
-		arraySize = subArray.size();
-		binarySearch(subArray,num);
+	else if (num > sorted.at(midVal)){
+		for(int i = midVal; i < vectSize; i++)
+			subVect.push_back(sorted.at(i));
+		vectSize = subVect.size();
+		binarySearch(subVect,vectSize,num);
 	}
-	else if ((num < a(midVal))){
-		midVal = (midVal + 1 + arraySize)/2;
-		for(int i = 0; i < midVal-1; i++)
-			subArray[] = a[i];
-		arraySize = subArray.size();
-		binarySearch(subArray,num);
+	else if (num < sorted.at(midVal)){
+		for(int i = 0; i < midVal; i++)
+			subVect.push_back(sorted.at(i));
+		vectSize = subVect.size();
+		binarySearch(subVect,vectSize,num);
 	}
+	return 0;
 }
 
 int main(){
 	int search;
-	int sortedArray[] = {2,6,9,10,12,14,16,17,18,20,23};
-	int arraySize = sizeof(sortedArray);
-	cout<<"2,6,9,10,12,14,16,17,18,20,23";
+	vector<int> sorted{2,6,9,10,12,14};
+	int vectSize = sorted.size();
+	cout<<"2,6,9,10,12,14"<<endl;
 	cout<<"Enter value to search in the above array"<<endl;
 	cin>>search;
-	cout << "The target index is" << binarySearch(sortedArray, arraySize, search)<< endl;
+	cout << "The target index is " << binarySearch(sorted, vectSize,search)<< endl;
 	return 0;
 }
