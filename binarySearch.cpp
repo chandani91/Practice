@@ -3,22 +3,18 @@
 using namespace std;
 
 int binarySearch(vector<int> &sorted, int vectSize, int num){
-	vector<int> subVect;
-	int midVal = (vectSize/2);
-	if (num == sorted.at(midVal))
-		return midVal;
-	else if (num > sorted.at(midVal)){
-		for(int i = midVal; i < vectSize; i++)
-			subVect.push_back(sorted.at(i));
-		vectSize = subVect.size();
-		binarySearch(subVect,vectSize,num);
-	}
-	else if (num < sorted.at(midVal)){
-		for(int i = 0; i < midVal; i++)
-			subVect.push_back(sorted.at(i));
-		vectSize = subVect.size();
-		binarySearch(subVect,vectSize,num);
-	}
+	int start = 0;
+	int end = vectSize - 1;
+	int midVal = (start+end)/2;
+	while (start <= end){
+		if (num == sorted.at(midVal))
+			return midVal;
+		else if (num < sorted.at(midVal))
+			end = midVal-1;
+		else if (num > sorted.at(midVal))
+			start = midVal+1;
+		midVal = (start+end)/2;
+	}	
 	return 0;
 }
 
