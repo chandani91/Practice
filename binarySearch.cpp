@@ -15,7 +15,7 @@ int binarySearch(vector<int> &sorted, int vectSize, int num){
 			start = midVal+1;
 		midVal = (start+end)/2;
 	}	
-	return 0;
+	return -1;
 }
 
 int main(){
@@ -25,6 +25,9 @@ int main(){
 	cout<<"2,6,9,10,12,14"<<endl;
 	cout<<"Enter value to search in the above array"<<endl;
 	cin>>search;
+	if (binarySearch(sorted, vectSize,search) == -1)
+		cout << "Error!!!" << endl;
+	else
 	cout << "The target index is " << binarySearch(sorted, vectSize,search)<< endl;
 	return 0;
 }
